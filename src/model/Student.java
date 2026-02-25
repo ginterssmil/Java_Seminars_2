@@ -80,5 +80,11 @@ public class Student {
 	}
 	
 	//5. toString funkcijas
+	@Override
+	public String toString() {
+		String result = stud_id + ": " + name + " " + surname + " ( " + person_code + " ) ";
+		return result;
+	}
+	
 	//6. visas parejas funkcijas pec nepieciesamibas
 }
