@@ -7,6 +7,8 @@ public class Student {
 	private String name;
 	private String surname;
 	private String person_code;
+	// paligmainigais, nevajag set, get
+	private static long counter = 0;
 	
 	//2. get funkcijas
 	public long get_stud_id() {
@@ -28,6 +30,37 @@ public class Student {
 	
 	
 	//3. set funkcijas
+	public void set_stud_id() {
+		stud_id = counter;
+		counter++;
+	}
+	
+	public void set_name(String input_name) {
+		if( (input_name != null) && (!input_name.isEmpty()) && (input_name.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?")) ) {
+			name = input_name;
+		}
+		else {
+			name = "Unknown";
+		}
+	}
+	
+	public void set_surname(String input_surname) {
+		if( (input_surname != null) && (!input_surname.isEmpty()) && (input_surname.matches("[A-Z]{1}[a-z]{2,15}([-]{1}[A-Z]{1}[a-z]{2,15})?")) ) {
+			surname = input_surname;
+		}
+		else {
+			surname = "Unknown";
+		}
+	}
+	
+	public void set_person_code(String input_person_code) {
+		if( (input_person_code != null) && (!input_person_code.isEmpty()) && (input_person_code.matches("[0-9]{6}[-]{1}[0-9]{5}")) ) {
+			person_code = input_person_code;
+		}
+		else {
+			person_code = "Unknown";
+		}
+	}
 	//4.1 bezargumenta funkcijas
 	//4.2 argumenta funkcijas
 	//5. toString funkcijas
