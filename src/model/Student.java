@@ -61,8 +61,24 @@ public class Student {
 			person_code = "Unknown";
 		}
 	}
+	
 	//4.1 bezargumenta funkcijas
+	public Student() {
+		set_stud_id();
+		set_name("Janis");
+		set_surname("Berzins-Kalnins");
+		set_person_code(121212-12345);
+	}
+	
 	//4.2 argumenta funkcijas
+	
+	public Student(String input_name, String input_surname, String input_person_code) {
+		set_stud_id();
+		set_name(input_name);
+		set_surname(input_surname);
+		set_person_code(input_person_code);	
+	}
+	
 	//5. toString funkcijas
 	//6. visas parejas funkcijas pec nepieciesamibas
 }
