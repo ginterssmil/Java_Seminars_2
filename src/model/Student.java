@@ -1,6 +1,6 @@
 package model;
 
-//modelu klase
+//modelu klase()
 public class Student {
 	//1. mainigie
 	private long stud_id;
