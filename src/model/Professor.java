@@ -79,19 +79,28 @@ public class Professor {
 	
 	
 	public Professor() {
-		set_prof_id();
-		set_name("Janis");
-		set_surname("Berzins-Kalnins");
-		set_person_code("121212-12345");
-		set_degree("Bakalaurs");
+		setProf_id();
+		setName("Janis");
+		setSurname("Sula");
+		setPerson_code("123456-12345");
+		setDegree(ProfDegree.unknown);
+		
 	}
 	
-	public Professor(String input_name, String input_surname, String input_person_code, String input_degree) {
-		set_prof_id();
-		set_name(input_name);
-		set_surname(input_surname);
-		set_person_code(input_person_code);
-		set_degree(input_degree);
+	public Professor(String input_name, String input_surname, String input_person_code,ProfDegree input_degree) {
+		setProf_id();
+		setName(input_name);
+		setSurname(input_surname);
+		setPerson_code(input_person_code);
+		setDegree(input_degree);
 	}
+	
+	
+	@Override
+	public String toString() {
+		String result = prof_id + ": " + name + " " + surname + " " + degree + " ( " + person_code + " ) ";
+		return result;
+	}
+	
 	
 }
