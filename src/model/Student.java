@@ -67,7 +67,7 @@ public class Student {
 		set_stud_id();
 		set_name("Janis");
 		set_surname("Berzins-Kalnins");
-		set_person_code(121212-12345);
+		set_person_code("121212-12345");
 	}
 	
 	//4.2 argumenta funkcijas
