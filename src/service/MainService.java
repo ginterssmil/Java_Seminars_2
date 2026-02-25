@@ -16,12 +16,12 @@ public class MainService {
 		System.out.println(stud3);
 		
 		Professor prof1 = new Professor();
-		System.out.println(stud1);
+		System.out.println(prof1);
 		
 		Professor prof2 = new Professor("Austr", "Zeid", "124515-67891", ProfDegree.bachelor);
-		System.out.println(stud2);
+		System.out.println(prof2);
 
 		Professor prof3 = new Professor("Gint2", "SmiLt", null, null);
-		System.out.println(stud3);
+		System.out.println(prof3);
 	}
 }
