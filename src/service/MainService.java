@@ -5,6 +5,7 @@ import model.Student;
 import model_enums.ProfDegree;
 import model.Professor;
 import model.Course;
+import model.Grade;
 public class MainService {
 
 	public static void main(String[] args) {
@@ -28,13 +29,20 @@ public class MainService {
 		Professor prof3 = new Professor("Gint", "SmiLtins", null, null);
 		System.out.println(prof3);
 		
-		System.out.println("---------Courses--------------");
-		Course cour1 = new Course();
-		System.out.println(cour1);	
-		Course cour2 = new Course("Algoritmu teorija",(byte)3,prof2);
-		System.out.println(cour2);	
-		Course cour3 = new Course("Elektronika",(byte)30, prof3);
-		System.out.println(cour3);	
+		System.out.println("---------Course--------------");
+		Course course1 = new Course();
+		System.out.println(course1);	
+		Course course2 = new Course("Algoritmu teorija",(byte)3,prof2);
+		System.out.println(course2);	
+		Course course3 = new Course("Elektronika",(byte)30, prof3);
+		System.out.println(course3);	
 
+		System.out.println("---------Grade--------------");
+		Grade grade1 = new Grade();
+		System.out.println(grade1);	
+		Grade grade2 = new Grade(10,stud2,course1);
+		System.out.println(grade2);	
+		Grade grade3 = new Grade(10, stud2, course2);
+		System.out.println(grade3);	
 	}
 }
