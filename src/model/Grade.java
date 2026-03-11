@@ -65,6 +65,21 @@ public class Grade {
 		}
 	}
 	
+	public Grade() {
+		setGradeId();
+		setValue(1);
+		setStudent(new Student());
+		setCourse(new Course());
+	}
+	
+	
+	
+	public Grade(int inputValue, Student inputStudent, Course inputCourse) {
+		setGradeId();
+		setValue(inputValue);
+		setStudent( inputStudent);
+		setCourse(inputCourse);
+	}
 	
 	
 	
