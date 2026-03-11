@@ -1,12 +1,11 @@
 package model;
 
 //modelu klase()
-public class Student {
+public class Student extends Person{
 	//1. mainigie
 	private long stud_id;
-	private String name;
-	private String surname;
-	private String person_code;
+
+	
 	// paligmainigais, nevajag set, get
 	private static long counter = 0;
 	
@@ -14,69 +13,31 @@ public class Student {
 	public long get_stud_id() {
 		return stud_id;
 	}
-	
-	public String get_name() {
-		return name;
-	}
-	
-	public String get_surname() {
-		return surname;
-	}
-	
-	public String get_person_code() {
-		return person_code;
-	}
-	
-	
-	
+
 	//3. set funkcijas
 	public void set_stud_id() {
 		stud_id = counter;
 		counter++;
 	}
 	
-	public void set_name(String input_name) {
-		if( (input_name != null) && (!input_name.isEmpty()) && (input_name.matches("[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?")) ) {
-			name = input_name;
-		}
-		else {
-			name = "Unknown";
-		}
-	}
-	
-	public void set_surname(String input_surname) {
-		if( (input_surname != null) && (!input_surname.isEmpty()) && (input_surname.matches("[A-Z]{1}[a-z]{2,15}([-]{1}[A-Z]{1}[a-z]{2,15})?")) ) {
-			surname = input_surname;
-		}
-		else {
-			surname = "Unknown";
-		}
-	}
-	
-	public void set_person_code(String input_person_code) {
-		if( (input_person_code != null) && (!input_person_code.isEmpty()) && (input_person_code.matches("[0-9]{6}[-]{1}[0-9]{5}")) ) {
-			person_code = input_person_code;
-		}
-		else {
-			person_code = "Unknown";
-		}
-	}
 	
 	//4.1 bezargumenta funkcijas
 	public Student() {
+		super();
 		set_stud_id();
-		set_name("Janis");
-		set_surname("Berzins-Kalnins");
-		set_person_code("121212-12345");
+
+		//super aizstj sos jo tie tiek izsaukti no Person klases
+		//setName("Janis");
+		//setSurname("Berzins-Kalnins");
+		//setPersonCode("121212-12345");
 	}
 	
 	//4.2 argumenta funkcijas
 	
 	public Student(String input_name, String input_surname, String input_person_code) {
+		super(input_name, input_surname, input_person_code);
 		set_stud_id();
-		set_name(input_name);
-		set_surname(input_surname);
-		set_person_code(input_person_code);	
+
 	}
 	
 	//5. toString funkcijas

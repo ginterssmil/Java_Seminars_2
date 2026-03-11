@@ -82,7 +82,7 @@ public class Grade {
 	}
 	
 	public String toString() {
-		String result = gradeId + ": " + student.get_name().charAt(0) + ". " + student.get_surname() + 
+		String result = gradeId + ": " + student.getName().charAt(0) + ". " + student.getSurname() + 
 				" nopelnija " + value + " " + course.getTitle();
 		return result;
 	}

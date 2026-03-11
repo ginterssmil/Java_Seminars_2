@@ -1,9 +1,9 @@
 package model;
 
 public class Person {
-	private String name;
-	private String surname;
-	private String person_code;
+	protected String name;
+	protected String surname;
+	protected String person_code;
 	
 	
 	public String getName() {
