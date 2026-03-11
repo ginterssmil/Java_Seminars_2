@@ -64,12 +64,19 @@ public class Course {
 		setProfessor(new Professor());
 	}
 	
-	public Course( String inputTitle, byte inputCreditPoints,Professor inputProfessor) {
+	public Course( String inputTitle, byte inputCreditPoints, Professor inputProfessor) {
 		setCourseId();
 		setTitle(inputTitle);
 		setCreditPoints(inputCreditPoints);
 		setProfessor(inputProfessor);
 	}
 
+	
+	public String toString() {
+		String result = courseId + ": " + title + " (" + creditPoints + "), "
+	+ professor.getName().charAt(0) + ". " + professor.getSurname();
+		return result;
+	}
+	
 	
 }
