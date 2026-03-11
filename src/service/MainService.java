@@ -9,6 +9,7 @@ import model_enums.ProfDegree;
 import model.Professor;
 import model.Course;
 import model.Grade;
+
 public class MainService {
 
 	private static ArrayList<Student> allStudents = new ArrayList<Student>();
@@ -60,6 +61,44 @@ public class MainService {
 		allGrades.addAll(Arrays.asList(grade1, grade2, grade3));
 
 		System.out.println(allGrades);
-
+		
+		
+	
 	}
+	
+	//CRUD create retrieve update delete
+	//only making crud for student class
+	
+	//create
+	public void creatStudent(String inputName, String inputSurname, String inputPersonCode) throws Exception {
+		//TODO parbauda ienakosos parametrus
+		
+		for(Student tempS : allStudents) {
+			if(tempS.getPersonCode().equals(inputPersonCode)) {
+				throw new Exception("tads student jau eksiste");
+			}
+		}
+		
+		Student newStudent = new Student(inputName, inputSurname, inputPersonCode);
+		allStudents.add(newStudent);
+	}
+	
+	//retrieve by id
+	public static Student getStudentById(long id) throws Exception{
+		if(id<0) {
+			throw new Exception("id nevar but negativs");
+		}
+		for(Student tempS : allStudents) {
+			if(tempS.get_stud_id() == id) {
+				return tempS;
+			}
+		}
+		
+		throw new Exception("students ar" + id + "neeksiste ");
+	}
+	
+	
+	
+	
+	
 }
