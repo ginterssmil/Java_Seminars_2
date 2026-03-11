@@ -1,5 +1,6 @@
 package service;
 
+//import model.*   importe visu no model
 import model.Student;
 import model_enums.ProfDegree;
 import model.Professor;
@@ -21,13 +22,19 @@ public class MainService {
 		Professor prof1 = new Professor();
 		System.out.println(prof1);
 		
-		Professor prof2 = new Professor("Austr", "Zeid", "124515-67891", ProfDegree.bachelor);
+		Professor prof2 = new Professor("Vairis", "Caune", "124515-67891", ProfDegree.bachelor);
 		System.out.println(prof2);
 
-		Professor prof3 = new Professor("Gint2", "SmiLt", null, null);
+		Professor prof3 = new Professor("Gint", "SmiLtins", null, null);
 		System.out.println(prof3);
 		
 		System.out.println("---------Courses--------------");
+		Course cour1 = new Course();
+		System.out.println(cour1);	
+		Course cour2 = new Course("Algoritmu teorija",(byte)3,prof2);
+		System.out.println(cour2);	
+		Course cour3 = new Course("Elektronika",(byte)30, prof3);
+		System.out.println(cour3);	
 
 	}
 }
