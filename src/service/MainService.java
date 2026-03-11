@@ -3,9 +3,11 @@ package service;
 import model.Student;
 import model_enums.ProfDegree;
 import model.Professor;
+import model.Course;
 public class MainService {
 
 	public static void main(String[] args) {
+		System.out.println("----------- Students--------------");
 		Student stud1 = new Student();
 		System.out.println(stud1);
 		
@@ -15,6 +17,7 @@ public class MainService {
 		Student stud3 = new Student("Gint2", "SmiLt", null);
 		System.out.println(stud3);
 		
+		System.out.println("---------Professors--------------");
 		Professor prof1 = new Professor();
 		System.out.println(prof1);
 		
@@ -23,5 +26,8 @@ public class MainService {
 
 		Professor prof3 = new Professor("Gint2", "SmiLt", null, null);
 		System.out.println(prof3);
+		
+		System.out.println("---------Courses--------------");
+
 	}
 }

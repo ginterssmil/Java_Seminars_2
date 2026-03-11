@@ -1,6 +1,7 @@
 package model;
 
-import model_enums.ProfDegree;
+
+import model.Professor;
 
 public class Course {
 	private long courseId;
@@ -53,6 +54,21 @@ public class Course {
 		if ( (inputProfessor != null) ) {
 			professor = inputProfessor;
 		}
+	}
+	
+	
+	public Course() {
+		setCourseId();
+		setCreditPoints((byte)6);
+		setTitle("JAVA");
+		setProfessor(new Professor());
+	}
+	
+	public Course( String inputTitle, byte inputCreditPoints,Professor inputProfessor) {
+		setCourseId();
+		setTitle(inputTitle);
+		setCreditPoints(inputCreditPoints);
+		setProfessor(inputProfessor);
 	}
 
 	
