@@ -81,6 +81,11 @@ public class Grade {
 		setCourse(inputCourse);
 	}
 	
+	public String toString() {
+		String result = gradeId + ": " + student.get_name().charAt(0) + ". " + student.get_surname() + 
+				" nopelnija " + value + " " + course.getTitle();
+		return result;
+	}
 	
 	
 	
