@@ -44,6 +44,20 @@ public class Person {
 		}
 	}
 	
+	public Person() {
+		setName("Liga");
+		setSurname("Jauka");
+		setPersonCode("090923- 12345");
+	}
 	
+	public Person(String inputName, String inputSurname, String inputPersonCode) {
+		setName(inputName);
+		setSurname(inputSurname);
+		setPersonCode(inputPersonCode);
+	}
 	
+	public String toString() {
+		String result = name + " " + surname + " " + person_code;
+		return result;
+	}
 }
