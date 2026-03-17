@@ -63,14 +63,26 @@ public class MainService {
 		System.out.println(allGrades);
 		
 		
-	
+		
+		System.out.println("---------CRUD testing--------------");
+		try {
+			createStudent("Janis", "Berzins", "025004-12345");
+			System.out.println(allStudents);
+			System.out.println(getStudentById(4));
+			System.out.println(updateById(0, "Ilmars", "Sula"));
+			deleteById(4);
+			System.out.println(allStudents);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	//CRUD create retrieve update delete
 	//only making crud for student class
 	
 	//create
-	public void creatStudent(String inputName, String inputSurname, String inputPersonCode) throws Exception {
+	public static void createStudent(String inputName, String inputSurname, String inputPersonCode) throws Exception {
 		//TODO parbauda ienakosos parametrus
 		
 		for(Student tempS : allStudents) {
