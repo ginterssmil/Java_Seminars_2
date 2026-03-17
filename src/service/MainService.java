@@ -84,9 +84,14 @@ public class MainService {
 		System.out.println("---------filter testing--------------");
 		try {
 			System.out.println(filterProfessorsByDegree(ProfDegree.master));
+			
+			System.out.println("Jana videja atzime ir"+ calculateAVGgradeForStudent("123415-51034"));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		
+		
 	}
 	
 	//CRUD create retrieve update delete
@@ -165,8 +170,8 @@ public class MainService {
 	
 	
 	public static float calculateAVGgradeForStudent(String input_person_code) throws Exception {
-		if( (input_person_code != null) || (!input_person_code.isEmpty()) || !input_person_code.matches("[0-9]{6}[-]{1}[0-9]{5}" )) {
-			throw new Exception("Nepareizi ievades dati")
+		if( (input_person_code == null) || (input_person_code.isEmpty()) || !input_person_code.matches("[0-9]{6}[-]{1}[0-9]{5}" )) {
+			throw new Exception("Nepareizi ievades dati");
 		}
 		int count = 0;
 		float sum = 0;
@@ -178,7 +183,7 @@ public class MainService {
 		}
 		
 		if(count == 0) {
-			throw new Exception("Studenta ar personas kodu" + input_person_code + "nav nevienas atzimes, tapec nevar izrekinat videjo atzimi");
+			throw new Exception("Studentam ar personas kodu " + input_person_code + " nav nevienas atzimes, tapec nevar izrekinat videjo atzimi");
 			
 		}
 		
