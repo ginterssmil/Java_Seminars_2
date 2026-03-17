@@ -3,6 +3,8 @@ package service;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.xml.crypto.dsig.spec.ExcC14NParameterSpec;
+
 //import model.*   importe visu no model
 import model.Student;
 import model_enums.ProfDegree;
@@ -162,4 +164,25 @@ public class MainService {
 	}
 	
 	
+	public static float calculateAVGgradeForStudent(String input_person_code) throws Exception {
+		if( (input_person_code != null) || (!input_person_code.isEmpty()) || !input_person_code.matches("[0-9]{6}[-]{1}[0-9]{5}" )) {
+			throw new Exception("Nepareizi ievades dati")
+		}
+		int count = 0;
+		float sum = 0;
+		for(Grade tempG: allGrades) {
+			if(tempG.getStudent().getPersonCode().equals(input_person_code)) {
+				count++;
+				sum = sum + tempG.getValue();
+			}
+		}
+		
+		if(count == 0) {
+			throw new Exception("Studenta ar personas kodu" + input_person_code + "nav nevienas atzimes, tapec nevar izrekinat videjo atzimi");
+			
+		}
+		
+		return(sum/count);
+			
+		}
 }
