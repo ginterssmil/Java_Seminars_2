@@ -1,5 +1,6 @@
 package service;
 
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,11 +12,11 @@ import model_enums.ProfDegree;
 import model.Professor;
 import model.Course;
 import model.Grade;
+import model.Person;
 
 public class MainService {
 
-	private static ArrayList<Student> allStudents = new ArrayList<Student>();
-	private static ArrayList<Professor> allProfessors = new ArrayList<Professor>();
+	private static ArrayList<Person> allPersons = new ArrayList<Person>();// personas, studentus, profesorus
 	private static ArrayList<Course> allCourses = new ArrayList<Course>();
 	private static ArrayList<Grade> allGrades = new ArrayList<Grade>();
 
@@ -25,13 +26,9 @@ public class MainService {
 		Student stud2 = new Student("Janis", "Loks", "123415-51034");
 		Student stud3 = new Student("Gilberts", "Sals", "120405-51034");
 		
-		allStudents.add(stud1);
-		allStudents.add(stud2);
-		allStudents.add(stud3);
-		
-		for(Student tempS : allStudents) {
-			System.out.println(tempS);
-		}
+		allPersons.add(stud1);
+		allPersons.add(stud2);
+		allPersons.add(stud3);
 		
 		
 		System.out.println("---------Professors--------------");
@@ -39,10 +36,24 @@ public class MainService {
 		Professor prof2 = new Professor("Vairis", "Caune", "124515-67891", ProfDegree.bachelor);
 		Professor prof3 = new Professor("Ginters", "SmiLtins", "124515-67111", ProfDegree.master);
 		
-		allProfessors.addAll(Arrays.asList(prof1, prof2, prof3));
+		allPersons.addAll(Arrays.asList(prof1, prof2, prof3));
 		
-		System.out.println(allProfessors);
+		System.out.println("Visas personas: " + allPersons);
 
+		System.out.println("----------- Students--------------");
+		for(Person tempP: allPersons) {
+			if(tempP instanceof Student) {
+				System.out.println(tempP);
+			}
+			}
+		
+		System.out.println("---------Professors--------------");
+		for(Person tempP: allPersons) {
+			if(tempP instanceof Professor) {
+				System.out.println(tempP);
+			}
+		
+		
 		
 		System.out.println("---------Course--------------");
 		Course course1 = new Course();
@@ -69,11 +80,22 @@ public class MainService {
 		System.out.println("---------CRUD testing--------------");
 		try {
 			createStudent("Janis", "Berzins", "025004-12345");
-			System.out.println(allStudents);
+			
+			for(Person tempP1: allPersons) {
+				if(tempP1 instanceof Student) {
+					System.out.println(tempP1);
+				}
+			}
+			
 			System.out.println(getStudentById(4));
 			System.out.println(updateById(0, "Ilmars", "Sula"));
 			deleteById(4);
-			System.out.println(allStudents);
+			
+			for(Person tempP2: allPersons) {
+				if(tempP2 instanceof Student) {
+					System.out.println(tempP2);
+				}
+			}
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -86,10 +108,11 @@ public class MainService {
 			System.out.println(filterProfessorsByDegree(ProfDegree.master));
 			
 			System.out.println("Jana videja atzime ir"+ calculateAVGgradeForStudent("123415-51034"));
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+		}
 		
 		
 	}
@@ -101,14 +124,14 @@ public class MainService {
 	public static void createStudent(String inputName, String inputSurname, String inputPersonCode) throws Exception {
 		//TODO parbauda ienakosos parametrus
 		
-		for(Student tempS : allStudents) {
-			if(tempS.getPersonCode().equals(inputPersonCode)) {
+		for(Person tempS : allPersons) {
+			if(tempS instanceof Student && tempS.getPersonCode().equals(inputPersonCode)) {
 				throw new Exception("tads student jau eksiste");
 			}
 		}
 		
 		Student newStudent = new Student(inputName, inputSurname, inputPersonCode);
-		allStudents.add(newStudent);
+		allPersons.add(newStudent);
 	}
 	
 	//retrieve by id
@@ -116,9 +139,12 @@ public class MainService {
 		if(id<0) {
 			throw new Exception("id nevar but negativs");
 		}
-		for(Student tempS : allStudents) {
-			if(tempS.get_stud_id() == id) {
-				return tempS;
+		for(Person tempS : allPersons) {
+			if(tempS instanceof Student) {
+				Student stud = (Student)tempS;
+				if(stud.get_stud_id() == id) {
+					return stud;
+				}
 			}
 		}
 		
@@ -146,8 +172,11 @@ public class MainService {
 	
 	public static void deleteById(int id) throws Exception{
 		Student studentForDeleting = getStudentById(id);
-		allStudents.remove(studentForDeleting);
+		allPersons.remove(studentForDeleting);
 	}
+	
+	
+	//filtering -------------------
 	
 	
 	public static ArrayList<Professor> filterProfessorsByDegree(ProfDegree inputDegree) throws Exception{
@@ -155,9 +184,12 @@ public class MainService {
 			throw new Exception("Neeksistejos grads");
 		}
 		ArrayList<Professor> result = new ArrayList<Professor>();
-		for(Professor tempP: allProfessors) {
-			if(tempP.getDegree().equals(inputDegree)) {
-				result.add(tempP);
+		for(Person tempP: allPersons) {
+			if(tempP instanceof Professor) {
+				Professor prof = (Professor)tempP;
+				if(prof.getDegree().equals(inputDegree)) {
+					result.add(prof);
+				}
 			}
 		}
 		
