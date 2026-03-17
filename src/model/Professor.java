@@ -54,7 +54,7 @@ public class Professor extends Person{
 	
 	@Override
 	public String toString() {
-		String result = prof_id + ": " + name + " " + surname + " " + degree + " ( " + person_code + " ) ";
+		String result = prof_id + ": " + name + " " + surname + ", " + degree + " ( " + person_code + " ) ";
 		return result;
 	}
 	

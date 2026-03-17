@@ -76,6 +76,15 @@ public class MainService {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		
+		
+		System.out.println("---------filter testing--------------");
+		try {
+			System.out.println(filterProfessorsByDegree(ProfDegree.master));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	//CRUD create retrieve update delete
@@ -134,6 +143,23 @@ public class MainService {
 	}
 	
 	
+	public static ArrayList<Professor> filterProfessorsByDegree(ProfDegree inputDegree) throws Exception{
+		if(inputDegree == null) {
+			throw new Exception("Neeksistejos grads");
+		}
+		ArrayList<Professor> result = new ArrayList<Professor>();
+		for(Professor tempP: allProfessors) {
+			if(tempP.getDegree().equals(inputDegree)) {
+				result.add(tempP);
+			}
+		}
+		
+		if(result.isEmpty()) {
+			throw new Exception("Sistema nav profesoru ar " + inputDegree + "gradu");
+		}
+		
+		return result;
+	}
 	
 	
 }
